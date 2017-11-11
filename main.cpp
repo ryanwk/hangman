@@ -6,28 +6,17 @@
 using namespace std;
 
 string grab_rand_string ();
-// string change (char& old_array[]);
+string populate_array (string array[], int number);
 
 int main () {
 
-    string old_array[5];
-    cout << "Displaying each index of array once changed: " << endl;
-    for (int i = 0; i <= 5; i++){
-      string line;
-      line = grab_rand_string();
-      old_array[i] = line;
-      cout << "&old_array[" << i << "] = " << old_array[i] << endl;
+    string word_array[5];
+    // populates word_array with new words on every call
+    populate_array(word_array, 5);
+    // prints array values
+    for (int i = 0; i < 5; i++){
+      cout << "array[" << i << "] = " << word_array[i] << endl;
     }
-    // cout << old_array <<endl;
-
-  // initialize random seed
- //  srand (time(NULL));
- //
- // // initialize and generate random number between 1 and 5
- //  int play_random_word = rand() % 5 + 1;
-  // print the location of an array based on value passed to the function;
-
-  // grab_rand_strings(play_random_word);
 
   // prints body part according to value passed to function
   // print_body_parts(2);
@@ -61,8 +50,11 @@ string grab_rand_string () {
   }
   return line;
 }
-
-// char change (char & old_array) {
-//
-//
-// }
+string populate_array (string array[], int number) {
+  // runs grab_rand_string to populate the array with random words from dictionary
+  string end = "end";
+  for (int i = 0; i < number; i++){
+    array[i] = grab_rand_string();
+  }
+  return end;
+}
